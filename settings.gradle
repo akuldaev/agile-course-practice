@@ -64,8 +64,14 @@ include "code/converter-temperature/Infrastructure"
 project(":code/converter-temperature/Infrastructure").name = "converter-temperature-Infrastructure"
 
 // Gorbunova Natalia
-include "code/mortgage-calculator"
-project (":code/mortgage-calculator").name= "mortgage-calculator-Model"
+include "code/mortgage-calculator/Model"
+project(":code/mortgage-calculator/Model").name = "mortgage-calculator-Model"
+include "code/mortgage-calculator/View"
+project(":code/mortgage-calculator/View").name = "mortgage-calculator-View"
+include "code/mortgage-calculator/ViewModel"
+project(":code/mortgage-calculator/ViewModel").name = "mortgage-calculator-ViewModel"
+include "code/mortgage-calculator/Infrastructure"
+project(":code/mortgage-calculator/Infrastructure").name = "mortgage-calculator-Infrastructure"
 
 // Krivonosov Mikhail
 include "code/polynomial-calculator/Model"
@@ -208,9 +214,6 @@ project(":code/string-calculator/Infrastructure").name = "string-calculator-Infr
 include "code/bevzuk-anton"
 project(":code/bevzuk-anton").name = "bevzuk-anton-Model"
 
-// Gorbunova Natalya
-include "code/mortgage-calculator"
-project(":code/mortgage-calculator").name = "mortgage-calculator-Model"
 
 // Korniakov Kirill, lab1
 include "code/korniakov-kirill-lab1"

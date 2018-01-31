@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':mortgage-calculator-ViewModel')
+    testCompile project(':mortgage-calculator-ViewModel').sourceSets.test.output
+}

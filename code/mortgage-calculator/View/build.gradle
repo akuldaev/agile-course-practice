@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':mortgage-calculator-ViewModel')
+    compile project(':mortgage-calculator-Infrastructure')
+}
