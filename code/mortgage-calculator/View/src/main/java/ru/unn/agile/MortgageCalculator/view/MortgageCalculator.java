@@ -181,7 +181,7 @@ public final class MortgageCalculator {
     private JLabel labelSum;
     private JLabel nameLabel;
     private JLabel statusName;
-    private JList listLog;
+    private JList <String> listLog;
     private ViewModel viewModel;
 
 }
