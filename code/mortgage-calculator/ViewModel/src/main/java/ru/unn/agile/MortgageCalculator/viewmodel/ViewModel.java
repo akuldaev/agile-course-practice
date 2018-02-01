@@ -298,4 +298,3 @@ public class ViewModel {
         return line.matches("-?\\d+(\\.\\d+)?");
     }
 }
-/**/

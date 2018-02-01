@@ -287,4 +287,3 @@ public class ViewModelTests {
         viewModel.setInterestRate("0.05");
     }
 }
-//
