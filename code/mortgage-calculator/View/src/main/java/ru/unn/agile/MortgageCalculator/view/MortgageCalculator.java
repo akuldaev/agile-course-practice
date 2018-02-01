@@ -35,7 +35,7 @@ public final class MortgageCalculator {
 
         calculateButton.addActionListener(actionEvent -> {
             bind();
-            MortgageCalculator.this.viewModel.calculate();
+            viewModel.calculate();
             backBind();
         });
 
@@ -152,10 +152,9 @@ public final class MortgageCalculator {
         }
 
         viewModel.setDurationOfCredit((String) cbPeriodType.getSelectedItem());
-        if (txtPeriodNumber.isEnabled()) {
-            if (!txtPeriodNumber.getText().equals("")) {
-                viewModel.setPeriodNumber(txtPeriodNumber.getText());
-            }
+        String PeriodNumber = txtPeriodNumber.getText();
+        if (txtPeriodNumber.isEnabled() && !PeriodNumber.equals("")) {
+            viewModel.setPeriodNumber(txtPeriodNumber.getText());
         }
     }
 
@@ -178,14 +177,6 @@ public final class MortgageCalculator {
     private JLabel lbStatus;
     private JComboBox cbPeriodType;
     private JTextField txtPeriodNumber;
-    private JLabel data;
-    private JLabel procent;
-    private JLabel labelPrice;
-    private JLabel typePrice;
-    private JLabel lbPeriodNumber;
-    private JLabel labelSum;
-    private JLabel nameLabel;
-    private JLabel statusName;
     private JList<String> listLog;
     private ViewModel viewModel;
     private static final Integer FORM_WIDTH = 500;
