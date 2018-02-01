@@ -61,19 +61,26 @@ public final class MortgageCalculator {
             }
 
             @Override
-            public void removeUpdate(DocumentEvent e) {
+            public void changedUpdate(DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void changedUpdate(DocumentEvent e) {
+            public void removeUpdate(DocumentEvent e) {
                 bind();
                 backBind();
             }
         });
 
         txtPeriodNumber.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                bind();
+                backBind();
+            }
+
             @Override
             public void insertUpdate(DocumentEvent e) {
                 bind();
@@ -81,16 +88,7 @@ public final class MortgageCalculator {
             }
 
             @Override
-            public void removeUpdate(DocumentEvent e) {
-                bind();
-                backBind();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e)
-
-            {
-
+            public void changedUpdate(DocumentEvent e) {
                 bind();
                 backBind();
             }
@@ -98,12 +96,6 @@ public final class MortgageCalculator {
 
         setRate.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void insertUpdate(DocumentEvent e) {
-                bind();
-                backBind();
-            }
-
-            @Override
             public void removeUpdate(DocumentEvent e) {
                 bind();
                 backBind();
@@ -111,6 +103,12 @@ public final class MortgageCalculator {
 
             @Override
             public void changedUpdate(DocumentEvent e) {
+                bind();
+                backBind();
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
                 bind();
                 backBind();
             }
@@ -181,7 +179,7 @@ public final class MortgageCalculator {
     private JLabel labelSum;
     private JLabel nameLabel;
     private JLabel statusName;
-    private JList <String> listLog;
+    private JList<String> listLog;
     private ViewModel viewModel;
-
 }
+//

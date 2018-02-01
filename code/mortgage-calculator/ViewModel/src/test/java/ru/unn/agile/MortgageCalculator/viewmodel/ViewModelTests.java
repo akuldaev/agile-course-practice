@@ -16,14 +16,14 @@ public class ViewModelTests {
         this.viewModel = viewModel;
     }
 
-    @Before
-    public void setUp() {
-        viewModel = new ViewModel(new FakeLogger());
-    }
-
     @After
     public void clean() {
         viewModel = null;
+    }
+
+    @Before
+    public void setUp() {
+        viewModel = new ViewModel(new FakeLogger());
     }
 
     @Test
@@ -148,32 +148,20 @@ public class ViewModelTests {
         assertNotNull(viewModelWithLogger);
     }
 
-    @Test
-    public void viewModelConstructorThrowsExceptionWithNullLogger() {
-        try {
-            new ViewModel(null);
-            fail("Exception wasn't thrown");
-        } catch (IllegalArgumentException exception) {
-            assertEquals("Parameter Logger can not be null", exception.getMessage());
-        } catch (Exception exception) {
-            fail("Invalid exception type");
-        }
-    }
-
     @Test(expected = IllegalArgumentException.class)
-    public void canThrowExceptionWhenLoggerIsNull() {
+    public void canThrowExceptionWhenLoggerIsEmpty() {
         new ViewModel(null);
     }
 
     @Test
-    public void isLogEmptyAfterStart() {
+    public void isLogEmptyAfterStartViewModel() {
         List<String> log = viewModel.getLog();
         assertEquals(0, log.size());
     }
 
     @Test
     public void isCalculatePuttingSomething() {
-       fillInputFields();
+        fillInputFields();
         viewModel.calculate();
 
         List<String> log = viewModel.getLog();
@@ -235,7 +223,7 @@ public class ViewModelTests {
         assertTrue(message.get(4).matches(".*Arguments"
                 + ": Amount of credit = " + viewModel.getAmountOfCredit()
                 + "; Interest rate = " + viewModel.getInterestRate()
-                + "; Credit period = " + viewModel.getPeriod() +" "+ viewModel.getDuration()
+                + "; Credit period = " + viewModel.getPeriod() + " " + viewModel.getDuration()
                 + "; Period for differentiated payment = " + viewModel.getPeriodNumber()
                 + "; PaymentType = " + viewModel.getPaymentType()
                 + "; Result = " + viewModel.getResultSum() + ".*"
@@ -249,8 +237,8 @@ public class ViewModelTests {
         viewModel.setPeriodNumber("2");
         viewModel.calculate();
 
-        List<String>  message = viewModel.getLog();
-       assertTrue(message.get(5).matches(".*differentiated.*"));
+        List<String> message = viewModel.getLog();
+        assertTrue(message.get(5).matches(".*differentiated.*"));
     }
 
     @Test
@@ -260,7 +248,7 @@ public class ViewModelTests {
         viewModel.setPaymentType(PaymentType.Differentiated);
         viewModel.setPaymentType(PaymentType.Annuity);
         viewModel.calculate();
-        List<String>  message = viewModel.getLog();
+        List<String> message = viewModel.getLog();
         assertTrue(message.get(5).matches(".*annuity.*"));
     }
 
@@ -290,6 +278,7 @@ public class ViewModelTests {
 
         assertEquals(1, viewModel.getLog().size());
     }
+
     private ViewModel viewModel;
 
     private void fillInputFields() {
