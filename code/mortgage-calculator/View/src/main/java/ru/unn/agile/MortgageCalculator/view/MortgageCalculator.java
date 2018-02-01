@@ -20,7 +20,7 @@ public final class MortgageCalculator {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.pack();
-        frame.setSize(500, 450);
+        frame.setSize(FORM_WIDTH_, FORM_HEIGHT);
         frame.setVisible(true);
     }
 
@@ -55,40 +55,39 @@ public final class MortgageCalculator {
 
         setAmount.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void insertUpdate(DocumentEvent e) {
+            public void insertUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void changedUpdate(DocumentEvent e) {
+            public void changedUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void removeUpdate(DocumentEvent e) {
+            public void removeUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
         });
 
         txtPeriodNumber.getDocument().addDocumentListener(new DocumentListener() {
-
             @Override
-            public void removeUpdate(DocumentEvent e) {
+            public void changedUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void insertUpdate(DocumentEvent e) {
+            public void insertUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void changedUpdate(DocumentEvent e) {
+            public void removeUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
@@ -96,19 +95,19 @@ public final class MortgageCalculator {
 
         setRate.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void removeUpdate(DocumentEvent e) {
+            public void removeUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void changedUpdate(DocumentEvent e) {
+            public void changedUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void insertUpdate(DocumentEvent e) {
+            public void insertUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
@@ -116,19 +115,19 @@ public final class MortgageCalculator {
 
         setPeriod.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void insertUpdate(DocumentEvent e) {
+            public void removeUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void removeUpdate(DocumentEvent e) {
+            public void insertUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
 
             @Override
-            public void changedUpdate(DocumentEvent e) {
+            public void changedUpdate(final DocumentEvent e) {
                 bind();
                 backBind();
             }
@@ -142,13 +141,21 @@ public final class MortgageCalculator {
     }
 
     private void bind() {
-        if (!setAmount.getText().equals("")) viewModel.setAmountOfCredit(setAmount.getText());
-        if (!setRate.getText().equals("")) viewModel.setInterestRate(setRate.getText());
-        if (!setPeriod.getText().equals("")) viewModel.setPeriod(setPeriod.getText());
+        if (!setAmount.getText().equals("")) {
+            viewModel.setAmountOfCredit(setAmount.getText());
+        }
+        if (!setRate.getText().equals("")) {
+            viewModel.setInterestRate(setRate.getText());
+        }
+        if (!setPeriod.getText().equals("")) {
+            viewModel.setPeriod(setPeriod.getText());
+        }
 
         viewModel.setDurationOfCredit((String) cbPeriodType.getSelectedItem());
         if (txtPeriodNumber.isEnabled()) {
-            if (!txtPeriodNumber.getText().equals("")) viewModel.setPeriodNumber(txtPeriodNumber.getText());
+            if (!txtPeriodNumber.getText().equals("")) {
+                viewModel.setPeriodNumber(txtPeriodNumber.getText());
+            }
         }
     }
 
@@ -181,5 +188,7 @@ public final class MortgageCalculator {
     private JLabel statusName;
     private JList<String> listLog;
     private ViewModel viewModel;
+    private static final int FORM_WIDTH_ = 500;
+    private static final int FORM_HEIGHT = 450;
 }
 //
