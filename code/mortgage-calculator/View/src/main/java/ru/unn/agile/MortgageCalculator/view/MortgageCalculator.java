@@ -188,7 +188,6 @@ public final class MortgageCalculator {
     private JLabel statusName;
     private JList<String> listLog;
     private ViewModel viewModel;
-    private static final int FORM_WIDTH = 500;
-    private static final int FORM_HEIGHT = 450;
+    private static final Integer FORM_WIDTH = 500;
+    private static final Integer FORM_HEIGHT = 450;
 }
-//
