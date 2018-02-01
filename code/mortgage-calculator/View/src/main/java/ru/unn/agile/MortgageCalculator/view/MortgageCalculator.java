@@ -20,7 +20,7 @@ public final class MortgageCalculator {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.pack();
-        frame.setSize(FORM_WIDTH_, FORM_HEIGHT);
+        frame.setSize(FORM_WIDTH, FORM_HEIGHT);
         frame.setVisible(true);
     }
 
@@ -188,7 +188,7 @@ public final class MortgageCalculator {
     private JLabel statusName;
     private JList<String> listLog;
     private ViewModel viewModel;
-    private static final int FORM_WIDTH_ = 500;
+    private static final int FORM_WIDTH = 500;
     private static final int FORM_HEIGHT = 450;
 }
 //
