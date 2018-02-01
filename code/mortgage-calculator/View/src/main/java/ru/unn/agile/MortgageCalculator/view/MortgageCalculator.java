@@ -152,8 +152,8 @@ public final class MortgageCalculator {
         }
 
         viewModel.setDurationOfCredit((String) cbPeriodType.getSelectedItem());
-        String PeriodNumber = txtPeriodNumber.getText();
-        if (txtPeriodNumber.isEnabled() && !PeriodNumber.equals("")) {
+        String periodNumber = txtPeriodNumber.getText();
+        if (txtPeriodNumber.isEnabled() && !periodNumber.equals("")) {
             viewModel.setPeriodNumber(txtPeriodNumber.getText());
         }
     }
@@ -182,3 +182,4 @@ public final class MortgageCalculator {
     private static final Integer FORM_WIDTH = 500;
     private static final Integer FORM_HEIGHT = 450;
 }
+//n
